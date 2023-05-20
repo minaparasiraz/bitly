@@ -1,0 +1,23 @@
+bitlymodule.add-short-url:
+  path: '/add-short-url'
+  defaults:
+    _title: 'Add URL'
+    _form: '\Drupal\bitlymodule\Form\ShorturlForm'
+  requirements:
+    _access: 'TRUE'
+
+bitlymodule.short-url-list:
+  path: '/short-url-list'
+  defaults:
+    _title: 'Short link list page'
+    _controller: '\Drupal\bitlymodule\Controller\ShorturlController::listDetails'
+  requirements:
+    _access: 'TRUE'   
+
+bitlymodule.view-details:
+  path: '/view-details/{shortcode}'
+  defaults:
+    _title: 'Short link info page'
+    _controller: '\Drupal\bitlymodule\Controller\ShorturlController::showDetails'
+  requirements:
+    _permission: 'access content'    
