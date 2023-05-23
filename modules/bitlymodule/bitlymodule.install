@@ -1,0 +1,46 @@
+<?php
+use Drupal\Core\Database\Database;
+ 
+/**
+ * Implements hook_schema().
+ */
+function bitlymodule_schema(){
+    $schema['bitlytable'] = array(
+        'description' => 'The table for storing the students data.',
+        'fields' => array(
+            'id' => array(
+                'description' => 'The primary identifier for table',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'sourceurl' => array(
+                'description' => 'Source URL',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+           'short_code' => array(
+                'description' => 'Short Code',
+                'type' => 'varchar',
+                'length' => 25,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+
+           'hits' => array(
+                'description' => 'To store total number of click for the URL',
+                'type' => 'int',
+                'length' => 11,
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+
+           
+           
+        ),
+        'primary key' => array('id'),
+    );
+    return $schema;
+}
